@@ -13,14 +13,14 @@ router.get(
 // Callback from Google
 router.get(
   "/google/callback",
-  passport.authenticate("google", { failureRedirect: `${process.env.CLIENT_URL}/login` }),
+  passport.authenticate("google", { failureRedirect: `${process.env.CLIENT_URL}` }),
   (req, res) => {
     // Create JWT token
     const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
-    // Redirect with token
-    res.redirect(`${process.env.CLIENT_URL}/login-success?token=${token}`);
+    // Redirect with token to the frontend root URL
+    res.redirect(`${process.env.CLIENT_URL}/?token=${token}`);
   }
 );
 
