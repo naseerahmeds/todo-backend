@@ -31,7 +31,7 @@ router.post("/", authenticate, async (req, res) => {
   const newTask = new Task({
     userId: req.user._id,
     title: req.body.title,
-    status: "in progress",
+    status: "To-Do",
     date: new Date(),
   });
   await newTask.save();
