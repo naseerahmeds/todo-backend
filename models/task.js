@@ -5,8 +5,8 @@ const taskSchema = new mongoose.Schema({
   title: { type: String, required: true },
   status: { 
     type: String, 
-    enum: ["To-Do", "Completed"],  // ✅ Enum values
-    default: "To-Do"               // ✅ Default matches enum
+    enum: ["To-Do", "Completed"],
+    default: "To-Do"               
   },
   createdAt: { type: Date, default: Date.now },
 });
