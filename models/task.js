@@ -3,7 +3,11 @@ const mongoose = require("mongoose");
 const taskSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   title: { type: String, required: true },
-  status: { type: String, enum: ["To-Do-Now", "Completed"], default: "To-Do" },
+  status: { 
+    type: String, 
+    enum: ["To-Do", "Completed"],  // ✅ Enum values
+    default: "To-Do"               // ✅ Default matches enum
+  },
   createdAt: { type: Date, default: Date.now },
 });
 
